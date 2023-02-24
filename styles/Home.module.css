@@ -57,6 +57,7 @@
 .card span {
   display: inline-block;
   transition: transform 200ms;
+  
 }
 
 .card h2 {
@@ -82,9 +83,9 @@
 
 .center::before {
   background: var(--secondary-glow);
-  border-radius: 50%;
   width: 480px;
   height: 360px;
+  border-radius: 50%;
   margin-left: -400px;
 }
 
@@ -132,16 +133,17 @@
 
 /* Conic Gradient Animation */
 .thirteen::before {
-  animation: 6s rotate linear infinite;
+  animation: 1s rotate linear infinite;
   width: 200%;
   height: 200%;
-  background: var(--tile-border);
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.628));
 }
 
 /* Inner Square */
 .thirteen::after {
   inset: 0;
   padding: 1px;
+
   border-radius: var(--border-radius);
   background: linear-gradient(
     to bottom right,

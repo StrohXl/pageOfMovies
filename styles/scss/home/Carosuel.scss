@@ -1,0 +1,24 @@
+.Carousel{
+    margin-top: 3rem;
+    height: 400px !important;
+    &_img{
+        height: 100%;
+        width: 100%;
+    }
+    &_Title{
+        font-weight:bold;
+        margin-left: 1rem;
+        position: absolute;
+        font-size: 3rem;
+        color: #fff;
+    }
+    &_Year{
+        font-weight:600;
+        margin-left: 1rem;
+        margin-top: 3.5rem;
+        position: absolute;
+        font-size:1.5rem;
+        color: #fff;
+    }
+  
+}

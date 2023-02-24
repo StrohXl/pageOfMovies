@@ -1,0 +1,60 @@
+@use '../mixsinc/mixinsFlex.scss';
+
+.ant-menu-overflow{
+    width: 500px;
+    height: 70px !important;
+    @include mixinsFlex.display-flex(space-between);
+    &-item{
+        color:  #aaa;
+        border-radius: 0 !important;
+        height: 100%;
+        width: 120px;
+       @include mixinsFlex.display-flex(center);
+       
+    }
+    .ant-menu-item{
+        &-icon{
+            padding-bottom: 10px !important;
+            font-size: 1rem !important;
+            gap: 10px;
+            @include mixinsFlex.display-flex(center);
+            flex-direction: column;
+        }
+
+        &-active{
+            border-bottom: 3px solid #fff;
+        }
+        &-selected{
+            color:  #fff !important;
+            border-bottom: 3px solid #fff;
+        }
+       }
+       .ant-menu-submenu{
+        padding-top: 5px;
+        &-selected{
+            color:  #fff !important;
+            border-bottom: 3px solid #fff;
+            padding-bottom: 3px;
+            padding-top: 4px;
+        }
+        &-active{
+            padding-bottom: 3px;
+            border-bottom: 3px solid #fff !important;
+            padding-top: 4px;
+        }
+        &-title{
+            padding-bottom: 6px !important;
+            height: 100% !important;
+            
+        }
+    }
+ }
+ .ant-menu-submenu-popup{
+  .ant-menu-item{
+    &-icon{
+        font-size: 1rem !important;
+        display: flex;
+        gap: 10px;
+    }
+  }
+ }

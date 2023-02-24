@@ -1,0 +1,23 @@
+@use '../mixsinc/mixinsFlex.scss';
+.Filtrado{
+    width: 100%;
+    margin-top: 2rem;
+    @include mixinsFlex.display-flex(space-around);
+  &_Options{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &_Select{
+    margin-top: 0.5rem;
+    width: 120px;
+  }
+  &_Genres{
+    margin-top: 0.5rem;
+    width: 400px;
+  }
+}

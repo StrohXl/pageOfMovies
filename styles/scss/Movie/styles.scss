@@ -1,0 +1,76 @@
+@use '../mixsinc/mixinsFlex.scss';
+
+.Col-Info-Movie {
+    color: #fff !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &-Card {
+        margin: 20px 0 0 20px;
+        width: 300px !important;
+        height: 500px ;
+        
+    }
+
+    &-Image {
+        border-radius: 8px !important;
+        height: 500px;
+    }
+
+    &-Title {
+        font-weight: bold;
+        font-size: 3rem;
+        
+    }
+
+    &-Description {
+        margin-top: 0.8rem;
+        font-weight: 00;
+        width: 95%;
+        font-size: 1.3rem;
+        text-align: justify;
+
+    }
+    &-Year{
+    
+        font-size: 1.2rem;
+    }
+    &-Runtime{
+       
+        font-size: 1.2rem;
+    }
+    &-Genres{
+     
+        font-size: 1.2rem;
+    }
+    &-Vote{
+  
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        color: #ffcb0f;
+
+    }
+    &-Tagline{
+  
+        color: #aaa;
+        align-items: center;
+        font-size: 1.3rem;
+    
+    }
+    
+}
+.MovieId{
+    z-index: 1000;
+    padding: 25px 2% 0;
+    margin: auto;
+    min-height: 100vh;
+    &_Background-Img{
+        z-index: -1;
+        top: 70px;
+        width: 100%;
+        height: 100%;
+        background: #585858 ;
+        position: absolute !important;
+    }
+}

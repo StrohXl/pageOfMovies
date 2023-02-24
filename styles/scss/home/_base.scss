@@ -1,0 +1,70 @@
+@use '../mixsinc/mixinsFlex.scss';
+.SiderNav{
+   width: 95%;
+}
+.ant-layout-footer{
+   margin-top: 50px !important;
+   background: #001529 !important;
+}
+.ant-layout{
+   background: #000d1a !important;
+
+}
+.ant-layout-sider-children{
+   background: #000d1a !important;
+}
+.ContentMain{
+   margin: auto;
+   width: 90%;
+}
+header{
+   height: 70px !important;
+ @include mixinsFlex.display-flex(space-between);
+ .Search{
+    width: 300px;
+ }
+ .SearchYear{
+   width: 50% !important;
+ }
+ .Title_Header{
+    color: white ;
+    font-weight: bold;
+    font-size: 2rem;
+  &:hover{
+   animation-name: color;
+   animation-duration: 10ms ;
+   color: #1677ff !important;
+ }  
+ }
+
+}
+.Row_Cards{
+   flex-wrap: wrap;
+   @include mixinsFlex.display-flex(center);
+}
+.ContentListAndMovies{
+   width: 90%;
+   margin: auto;
+   min-height: 100vh;
+}
+.VerMas{
+  
+   @include mixinsFlex.display-flex(end);
+   &_Button{
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem !important;
+   
+   }
+}
+.ant-pagination-options{
+   display: none !important;
+}
+
+   @media (max-width: 1200px) {
+      .ant-layout-sider{
+      display: none !important;
+      }
+   }
+
+

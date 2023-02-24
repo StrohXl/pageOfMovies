@@ -1,0 +1,104 @@
+@use '../mixsinc/mixinsFlex';
+.ant-card-body{
+    padding: 0 !important;
+    width: 100% !important;
+}
+.ContentCards{
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+.Col_Cards {
+    margin: 15px 15px;
+}
+
+.Title_Peliculas {
+    @include mixinsFlex.display-flex(space-between);
+    font-weight: 600;
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: #fff !important;
+    padding-left: 1rem;
+    border-left: 6px solid rgb(0, 122, 222);
+    margin-bottom: 1rem;
+}
+
+.Cards {
+    border-radius: 0 !important;
+    background-color: #aaa;
+    width: 100% !important;
+    height: 374.94px !important;
+   
+    &_Images {   
+        height: 372px;
+        width: 100%;
+        border-radius: 0 !important;
+    }
+
+    &_Body {
+
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+
+        &_Title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        &_Year {
+            padding-top: 10px;
+            color: #aaa;
+        }
+
+        &_Description {
+            padding-top: 10px;
+            padding-right: 20px;
+            color: #aaa;
+            font-size: 15px;
+            height: 49%;
+            overflow: hidden;
+        }
+
+        &_Vote {
+            position: absolute;
+            font-size: 1.2rem;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 10px;
+            @include mixinsFlex.display-flex(end);
+            color: #ffcb0f;
+        }
+        &_Genres {
+            position: absolute;
+            font-size: 15px;
+            bottom: 0;
+            left: 0;    
+            margin-bottom: 10px;
+        }
+    }
+    
+    &_Ver {
+        width: 100%;
+        height: 372.94px;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        display: flex;
+    }
+    
+    &_Icon {
+        color: #fff;
+    }
+
+}
+
+.Cards:hover .Cards_Ver {
+    opacity: 1;
+    top: 0;
+    background-color: #000000ce;
+
+
+
+}
