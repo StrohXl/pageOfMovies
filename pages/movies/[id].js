@@ -7,6 +7,7 @@ const Pelicula = () => {
   //Variables de estado
   const [data, setData] = useState([])
   const [similar, setSimilar] = useState([])
+  const [images, setImages] = useState([])
   const [moviesRecomendation, setMoviesRecomendeation] = useState([])
   //Variables Url
   const ApiUrl = 'https://api.themoviedb.org/3'
@@ -17,12 +18,22 @@ const Pelicula = () => {
   const pelicula = router.query.id
   //Funciones
   const LoadData = async () => {
-    const { data } = await axios.get(`${ApiUrl}/movie/${pelicula}`, {
+    const seasons = await axios.get(ApiUrl + `/movie/${pelicula}/videos`, {
       params: {
         api_key: KeyApi,
         language: 'es',
       }
     })
+    console.log(seasons.data)
+    const { data } = await axios.get(`${ApiUrl}/movie/${pelicula}`, {
+      params: {
+        api_key: KeyApi,
+        language: 'es',
+        append_to_response: 'videos'
+      }
+    })
+    setData(data)
+    console.log(data)
     const similar = await axios.get(`${ApiUrl}/movie/${pelicula}/similar`, {
       params: {
         api_key: KeyApi,
@@ -38,12 +49,21 @@ const Pelicula = () => {
       }
     })
     setMoviesRecomendeation(results)
-    setData(data)
+
   }
   useEffect(() => { LoadData() }, [pelicula])
   return (
 
     <div className='MovieId' >
+      {
+        data.backdrop_path == null ? '' :
+          <div className='content-background-image'>
+            <div className='background-dark'></div>
+            <img src={UrlImage + data.backdrop_path} />
+
+          </div>
+      }
+
       <MovieIdAndCardId data={data} UrlImage={UrlImage} />
       {moviesRecomendation.length == 0 ? '' :
         <List
@@ -54,7 +74,7 @@ const Pelicula = () => {
           limite={4}
           direccion='movies'
         />}
-           {similar.length == 0 ? '' :
+      {similar.length == 0 ? '' :
         <List
           tipoDeCarta={true}
           Data={similar}

@@ -65,7 +65,7 @@ export default function Home() {
         <Carousel />
         <Movies tipoDeCarta={true} Title={'Peliculas'} Data={movies} UrlImage={UrlImage} limite={8} direccion={'movies'} direccionVerMas='movies/pages/1' />
         <Movies tipoDeCarta={true} Title={'Series'} Data={tv} UrlImage={UrlImage} limite={8} direccion='tv' direccionVerMas='tv/pages/1' />
-        <Movies tipoDeCarta={true} Title={'peliculas en cines'} Data={now} UrlImage={UrlImage} limite={8} direccion='movies' direccionVerMas='movies/pages/1' />
+        <Movies tipoDeCarta={true} Title={'Peliculas en cines'} Data={now} UrlImage={UrlImage} limite={8} direccion='movies' direccionVerMas='movies/nowPlaying/1' />
 
 
       </div>

@@ -18,6 +18,22 @@ const Tv = () => {
   const serie = router.query.id
   //Funciones
   const LoadData = async (query) => {
+
+      const seasons = await axios.get(ApiUrl+`/tv/${serie}/season/1`,{
+          params: {
+              api_key: KeyApi,
+              language: 'es',
+            }
+      })
+      console.log(seasons.data)
+  
+      const seasonsVideos = await axios.get(ApiUrl+`/tv/${serie}/season/1/videos`,{
+        params: {
+            api_key: KeyApi,
+            language: 'es',
+          }
+    })
+    console.log(seasonsVideos)
     const { data } = await axios.get(`${ApiUrl}/tv/${serie}`, {
       params: {
         api_key: KeyApi,
@@ -36,19 +52,27 @@ const Tv = () => {
         language: 'es',
       }
     })
+    
     setRecomendation(recomendation.data.results)
 
     const generos = data.genres.map((i) => i.name)
     setGenres(`${generos}`)
-    console.log(data)
-    console.log(results)
     setTvSimilar(results)
     setData(data)
   }
   useEffect(() => { LoadData() }, [serie])
   return (
     <div className='MovieId'>
+            {
+        data.backdrop_path == null ? '' :
+          <div className='content-background-image'>
+            <div className='background-dark'></div>
+            <img src={UrlImage + data.backdrop_path} />
+
+          </div>
+      }
       <MovieIdAndCardId data={data} UrlImage={UrlImage} />
+
       {recomendation.length == 0 ? '' : <List
         tipoDeCarta={true}
         Data={recomendation}

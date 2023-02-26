@@ -38,6 +38,11 @@ const index = () => {
                         <Link href={'/movies/top/' + 1}><Icon size={1} path={mdiMovieOpenStar} /> Peliculas mejor valoradas</Link>,
                 },
                 {
+                    key: 22,
+                    icon:
+                        <Link href={'/movies/nowPlaying/' + 1}><Icon size={1} path={mdiMovieOpenPlay} /> Peliculas en Cines</Link>,
+                },
+                {
                     icon:
                         <div className="Sub-Menu-Genres"><Icon size={1} path={mdiMovieOpenPlay} /> Generos</div>,
                     children: [
@@ -125,11 +130,7 @@ const index = () => {
   
                     ]
                 },
-                {
-                    key: 22,
-                    icon:
-                        <Link href={'/movies/pages/' + 1}><Icon size={1} path={mdiMovieOpenPlay} /> Peliculas mejor valoradas</Link>,
-                },
+              
             ]
         },
         {
