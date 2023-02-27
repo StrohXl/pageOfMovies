@@ -18,7 +18,6 @@ const index = () => {
             }
         })
         setGenres(genres)
-        console.log(genres)
     }
     useEffect(() => { LoadGenres() }, [])
     const MenuItems = [

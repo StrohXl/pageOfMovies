@@ -7,7 +7,6 @@ const index = () => {
     const [tv, setTv] = useState([])
     const [movie, setMovie] = useState([])
     const busqueda = router.query.id
-    console.log(busqueda)
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
     const UrlImage = 'https://image.tmdb.org/t/p/original'
@@ -31,8 +30,7 @@ const index = () => {
 
         })
         setTv(tvs.data.results)
-        console.log(results)
-        console.log(tvs)
+
     }
     useEffect(() => { LoadData() }, [busqueda])
 

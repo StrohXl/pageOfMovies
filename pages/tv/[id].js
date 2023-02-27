@@ -6,7 +6,7 @@ import MovieIdAndCardId from '../../components/MovieIdAndCardId';
 const Tv = () => {
   //Variables de estado
   const [data, setData] = useState([])
-  const [genres, setGenres] = useState('')
+  const [trailer, setTrailer] = useState()
   const [tvSimilar, setTvSimilar] = useState([])
   const [recomendation, setRecomendation] = useState([])
   //Variables Url
@@ -18,26 +18,11 @@ const Tv = () => {
   const serie = router.query.id
   //Funciones
   const LoadData = async (query) => {
-
-      const seasons = await axios.get(ApiUrl+`/tv/${serie}/season/1`,{
-          params: {
-              api_key: KeyApi,
-              language: 'es',
-            }
-      })
-      console.log(seasons.data)
-  
-      const seasonsVideos = await axios.get(ApiUrl+`/tv/${serie}/season/1/videos`,{
-        params: {
-            api_key: KeyApi,
-            language: 'es',
-          }
-    })
-    console.log(seasonsVideos)
     const { data } = await axios.get(`${ApiUrl}/tv/${serie}`, {
       params: {
         api_key: KeyApi,
         language: 'es',
+        append_to_response: 'videos'
       }
     })
     const { data: { results } } = await axios.get(`${ApiUrl}/tv/${serie}/similar`, {
@@ -52,26 +37,18 @@ const Tv = () => {
         language: 'es',
       }
     })
-    
-    setRecomendation(recomendation.data.results)
 
-    const generos = data.genres.map((i) => i.name)
-    setGenres(`${generos}`)
+    setRecomendation(recomendation.data.results)
     setTvSimilar(results)
+    const trailer = data.videos.results.filter(i => i.name.includes('Trailer') || i.name.includes('Tráiler'))
+    setTrailer(trailer)
     setData(data)
   }
   useEffect(() => { LoadData() }, [serie])
   return (
     <div className='MovieId'>
-            {
-        data.backdrop_path == null ? '' :
-          <div className='content-background-image'>
-            <div className='background-dark'></div>
-            <img src={UrlImage + data.backdrop_path} />
 
-          </div>
-      }
-      <MovieIdAndCardId data={data} UrlImage={UrlImage} />
+      <MovieIdAndCardId data={data} UrlImage={UrlImage} trailer={trailer} />
 
       {recomendation.length == 0 ? '' : <List
         tipoDeCarta={true}

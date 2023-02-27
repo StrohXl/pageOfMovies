@@ -17,7 +17,6 @@ const index = () => {
     const KeyApi = '3883721a9564ae460e37b119f2483909'
     const UrlImage = 'https://image.tmdb.org/t/p/original'
  
-    console.log(router)
 
     //Funciones
     const LoadGenres= async() =>{
@@ -29,7 +28,6 @@ const index = () => {
             }
         })
         setIdGenres(idGenres)
-        console.log(idGenres)
         const tituloGenres = genres.filter(i => idGenres == i.id)
         setGenres(tituloGenres.map(i => i.name))
         LoadData(idGenres)

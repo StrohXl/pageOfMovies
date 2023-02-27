@@ -71,6 +71,7 @@
             bottom: 0;
             right: 0;
             margin-bottom: 10px;
+            padding-right: 10px;
             @include mixinsFlex.display-flex(end);
             color: #ffcb0f;
         }

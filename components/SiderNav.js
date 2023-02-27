@@ -32,7 +32,6 @@ const SiderNav = () => {
             }
         })
         setMovieTop(auxData.data.results)
-        console.log(results)
         setTvAiringToday(results)
     }
     const Year = (i) => {

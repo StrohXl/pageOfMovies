@@ -1,5 +1,18 @@
 @use '../mixsinc/mixinsFlex.scss';
 
+
+.ant-modal-content {
+    background-color: #000 !important;
+    .reproductor-trailer {
+        margin-top: 2rem;
+    }
+    .ant-modal-close-icon{
+        font-size: 1.5rem;
+        color: #fff;
+    }
+    
+}
+
 .content-background-image {
     top: 71px;
     left: 0;
@@ -26,6 +39,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &-Button {
+        margin-top: 1rem;
+    }
 
     &-Card {
         margin: 20px 0 0 20px;

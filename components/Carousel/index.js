@@ -21,7 +21,6 @@ const index = () => {
                 primary_release_year: 2023
             }
         })
-        console.log(results)
         setData(results)
     }
     useEffect(() => { LoadData() }, [])
