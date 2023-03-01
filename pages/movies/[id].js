@@ -53,11 +53,10 @@ const Pelicula = () => {
 
     <div className='MovieId' >
 
- 
 
 
-      <MovieIdAndCardId data={data} UrlImage={UrlImage}  trailer={trailer} />
 
+      <MovieIdAndCardId data={data} UrlImage={UrlImage} trailer={trailer} />
       {moviesRecomendation.length == 0 ? '' :
         <List
           tipoDeCarta={true}

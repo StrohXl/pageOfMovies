@@ -1,54 +1,72 @@
-@use '../mixsinc/mixinsFlex.scss';
-
-
-.ant-modal-content {
-    background-color: #000 !important;
-    .reproductor-trailer {
-        margin-top: 2rem;
-    }
-    .ant-modal-close-icon{
-        font-size: 1.5rem;
-        color: #fff;
-    }
+@use '../mixsinc/mixins.scss';
+.ant-modal {
+    @include mixins.caja(400px, '', 90%, '', '', '');
+    .ant-modal-content {
+        background-color: #000 !important;
     
+        .reproductor-trailer {
+            @include mixins.caja(400px, 400px, '', '', '', '');
+            @include mixins.caja(1600px, 600px, '', '', '', '');
+            margin-top: 2rem;
+        }
+    
+        .ant-modal-close-icon {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+    }
 }
 
+
 .content-background-image {
-    top: 71px;
+    background-size: 100% 520px !important;
+    background-repeat: no-repeat !important;
+    top: 60px;
     left: 0;
     width: 100%;
-    height: 720px;
     position: absolute;
+    height: 520px;
 
-    img {
+    @media (min-width:400px) and (max-width:851px) {
+        background-size: 100% 840px !important;
+        height: 840px !important;
 
-        height: 720px;
-        width: 100%;
+    }
+
+    @media (min-width: 1601px) {
+        background-size: 100% 620px !important;
+        height: 620px !important;
     }
 
     .background-dark {
         position: absolute;
-        background-color: #00000076;
         width: 100%;
-        height: 720px;
     }
 }
 
+.Col-Info-Image {
+    @include mixins.alto-ancho-margin(400px, 380px, 0 3rem);
+    @include mixins.alto-ancho-responsive(851px, 450px, 300px);
+    @include mixins.alto-ancho-responsive(1601px, 570px, 400px);
+}
+
 .Col-Info-Movie {
+    @include mixins.alto-ancho-margin(340px, '', '');
+    font-size: 1rem;
+    @include mixins.caja(400px, 370px, '', 0 0 1.5rem, '', '');
+    @include mixins.caja(851px, 500px, 50%, '', '', '');
+    @include mixins.alto-ancho-responsive(1201px, 500px, 60%);
+    @include mixins.alto-ancho-responsive(1601px, 500px, '');
     color: #fff !important;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 
     &-Button {
         margin-top: 1rem;
     }
-
+    &-Year{
+        font-size: 1rem
+    }
     &-Card {
-        margin: 20px 0 0 20px;
-        width: 300px !important;
-        height: 500px;
-
+        @include mixins.alto-ancho-margin(500px, 300px, 20px 0 0 20px);
     }
 
     &-Image {
@@ -58,52 +76,30 @@
 
     &-Title {
         font-weight: bold;
-        font-size: 3rem;
-
+        font-size: 2rem;
+        @include mixins.font-size(1601px, 3rem);
     }
 
     &-Description {
         margin-top: 0.8rem;
-        font-weight: 00;
-        width: 95%;
-        font-size: 1.3rem;
         text-align: justify;
+        @include mixins.font-size(1601px, 1.4rem);
 
-    }
-
-    &-Year {
-
-        font-size: 1.2rem;
-    }
-
-    &-Runtime {
-
-        font-size: 1.2rem;
-    }
-
-    &-Genres {
-
-        font-size: 1.2rem;
     }
 
     &-Vote {
-
-        display: flex;
-        align-items: center;
-        font-size: 2rem;
+        @include mixins.display-flex('center');
+        @include mixins.font-size(1601px, 1.5rem);
         color: #ffcb0f;
-
     }
 
     &-Tagline {
-
         color: #aaa;
-        align-items: center;
-        font-size: 1.3rem;
-
+        @include mixins.font-size(1601px, 1.5rem);
     }
 
 }
+
 
 .MovieId {
     z-index: 1000;
@@ -111,12 +107,7 @@
     margin: auto;
     min-height: 100vh;
 
-    &_Background-Img {
-        z-index: -1;
-        top: 70px;
-        width: 100%;
-        height: 100%;
-        background: #585858;
-        position: absolute !important;
+    .ant-row {
+        background-size: 100% 100%;
     }
 }

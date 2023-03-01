@@ -5,7 +5,7 @@ import Icon from "@mdi/react";
 import axios from "axios";
 
 import { mdiHome, mdiMovieOpenPlay, mdiMovieOpenStar, mdiTelevision } from "@mdi/js";
-const index = () => {
+const index = ({ mode }) => {
     //Variables
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
@@ -23,13 +23,18 @@ const index = () => {
     const MenuItems = [
         {
             key: 1,
-            icon: <Link href={'/'}><Icon size={1.6} path={mdiHome} /> Inicio</Link>
+            icon: <Link href={'/'}><Icon size={1.3} path={mdiHome} /> Inicio</Link>
         },
 
         {
-            key: 2,
-            icon: <Link href={'/movies/pages/' + 1}><Icon size={1.6} path={mdiMovieOpenPlay} /> Peliculas</Link>,
+            key: 2000,
+            icon: <div><Icon size={1.3} path={mdiMovieOpenPlay} /> Peliculas</div>,
             children: [
+                {
+                    key: 2,
+                    icon:
+                        <Link href={'/movies/pages/' + 1}><Icon size={1} path={mdiMovieOpenPlay} /> Peliculas</Link>,
+                },
 
                 {
                     key: 20,
@@ -42,6 +47,7 @@ const index = () => {
                         <Link href={'/movies/nowPlaying/' + 1}><Icon size={1} path={mdiMovieOpenPlay} /> Peliculas en Cines</Link>,
                 },
                 {
+                    key: 2100,
                     icon:
                         <div className="Sub-Menu-Genres"><Icon size={1} path={mdiMovieOpenPlay} /> Generos</div>,
                     children: [
@@ -126,16 +132,21 @@ const index = () => {
                             icon:
                                 <Link href={'/movies/genres/' + 53}><Icon size={1} path={mdiMovieOpenStar} /> Suspenso</Link>,
                         },
-  
+
                     ]
                 },
-              
+
             ]
         },
         {
-            key: 3,
-            icon: <Link href={'/tv/pages/' + 1}><Icon size={1.6} path={mdiTelevision} /> Series</Link>,
+            key: 3000,
+            icon: <div ><Icon size={1.3} path={mdiTelevision} /> Series</div>,
             children: [
+                {
+                    key: 3,
+                    icon:
+                        <Link href={'/tv/pages/' + 1}><Icon size={1} path={mdiTelevision} /> Series</Link>,
+                },
 
                 {
                     key: 30,
@@ -148,6 +159,7 @@ const index = () => {
                         <Link href={'/tv/airing_today/' + 1}><Icon size={1} path={mdiTelevision} /> Series en emision</Link>,
                 },
                 {
+                    key: 3100,
                     icon:
                         <div className="Sub-Menu-Genres"><Icon size={1} path={mdiTelevision} /> Generos</div>,
                     children: [
@@ -226,7 +238,7 @@ const index = () => {
                             icon:
                                 <Link href={'/tv/genres/' + 10768}><Icon size={1} path={mdiTelevision} /> Guerra y Politica</Link>,
                         },
-  
+
                     ]
                 },
             ]
@@ -235,7 +247,7 @@ const index = () => {
     ]
     return (
 
-        <Menu className="Menu_Items" theme="dark" items={MenuItems} mode={'horizontal'} />
+        <Menu className="Menu_Items" theme="dark" items={MenuItems} mode={mode} />
 
     );
 };

@@ -1,23 +1,12 @@
-@use '../mixsinc/mixinsFlex.scss';
-.Filtrado{
-    width: 100%;
-    margin-top: 2rem;
-    @include mixinsFlex.display-flex(space-around);
-  &_Options{
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
+@use '../mixsinc/mixins.scss';
+
+.Filtrado {
+  &_Options {
+    margin-left: 1rem;
+    @include mixins.texto(400px, 1rem, 600, #fff);
+    @include mixins.texto(1600px, 1.2rem, '', '');
+    @include mixins.ordenarTexto(400px, flex, '', '', column, 10px, '');
     margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
-  &_Select{
-    margin-top: 0.5rem;
-    width: 120px;
-  }
-  &_Genres{
-    margin-top: 0.5rem;
-    width: 400px;
-  }
+
 }

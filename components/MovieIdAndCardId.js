@@ -1,8 +1,9 @@
-import { Button, Row, Col, Image, Space, Modal } from 'antd';
+import { Button, Row, Col, Space, Modal } from 'antd';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from "next/router";
 import { mdiStar } from '@mdi/js';
+import Image from 'next/image';
 import Icon from "@mdi/react";
 import YouTube from 'react-youtube';
 
@@ -10,24 +11,25 @@ const MovieIdAndCardId = ({ data, UrlImage, trailer }) => {
 
     const router = useRouter()
     const [openModal, setOpenModal] = useState(false)
+    const backdgrop = UrlImage + data.backdrop_path
+    console.log(data)
+    const poster = UrlImage + data.poster_path
 
     return (
         <>
             {
                 data.backdrop_path == null ? '' :
-                    <div className='content-background-image'>
-                        <div className='background-dark'></div>
-                        <img src={UrlImage + data.backdrop_path} />
-
+                    <div  className='content-background-image' style={{background: `linear-gradient( #00000099, #111), url(${backdgrop})`}}>
+                
                     </div>
             }
-            {openModal ? <Modal width={1000} open={true} footer={null} onCancel={() => setOpenModal(false)} >
+            {openModal ? <Modal  open={true} footer={null} onCancel={() => setOpenModal(false)} >
                 <YouTube
                     videoId={trailer[0]?.key}
                     className='reproductor-trailer'
                     opts={{
                         width: '100%',
-                        height: '600px',
+                        height: '100%',
                         playerVars: {
                             autoplay: 1,
                         },
@@ -37,17 +39,17 @@ const MovieIdAndCardId = ({ data, UrlImage, trailer }) => {
             </Modal>
                 : ''
             }
-            <Row>
-                <Col className='Col-Info-Movie' span={7}>
-                    <Image width={450} src={UrlImage + data.poster_path} />
+            <Row justify={'start'} wrap >
+                <Col  className='Col-Info-Image' >
+                    <Image alt={data.title || data.name} loader={() => poster} src={poster} fill />
                 </Col>
-                <Col span={17} className='Col-Info-Movie'>
+                <Col className='Col-Info-Movie'>
                     <h1 className='Col-Info-Movie-Title'>{data.title || data.name}</h1>
                     <h4>
-                        <Space>
+                        <Space style={{flexWrap: 'wrap'}}>
                             <span className='Col-Info-Movie-Year'>{data.release_date || data.first_air_date}</span>
                             <span className='Col-Info-Movie-Genres'>
-                                <Space>
+                                <Space >
                                     {data.genres?.map(function (i) {
                                         return (
                                             <Link key={i.id} href={router.pathname == '/movies/[id]' ? `/movies/genres/${i.id}` : `/tv/genres/${i.id}`} className="VerMas">

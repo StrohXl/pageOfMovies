@@ -1,7 +1,7 @@
 import { Carousel, Button } from "antd";
 import axios from "axios";
-import { RightOutlined } from '@ant-design/icons'
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 const index = () => {
     //Variables reactivas
@@ -12,7 +12,7 @@ const index = () => {
     const UrlImage = 'https://image.tmdb.org/t/p/original'
     //Funciones
     const filtrado = data.filter((i, indice) => indice < 7)
-  
+
     const LoadData = async () => {
         const { data: { results } } = await axios.get(ApiUrl + '/discover/movie', {
             params: {
@@ -28,13 +28,14 @@ const index = () => {
         <Carousel autoplay>
             {filtrado.map(function (i) {
                 return (
-                    <div key={i.id} className='Carousel'>
-                        <span className="Carousel_Title">{i.title}</span>
-                        <span className="Carousel_Year">2023</span>
-                        <Link href={'/movies/'+i.id}>
-                        <img className="Carousel_img" src={UrlImage + i.backdrop_path} />
+                    <div key={i.id} className='carousel'>
+                        <Link href={'/movies/' + i.id}>
+                            <div className="carousel-content-title">
+                                <span className="carousel_Title">{i.title}</span>
+                                <span className="carousel_Year">2023</span>
+                            </div>
+                            <Image loader={()=> UrlImage + i.backdrop_path} src={UrlImage + i.backdrop_path} style={{width: '100%', height: '100%'}} alt={i.title} width={'100'} height={300} />
                         </Link>
-                        
                     </div>
                 )
             })}

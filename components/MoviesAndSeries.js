@@ -1,5 +1,5 @@
 import Cards from './Cards'
-import { Button } from "antd";
+import { Button,Row } from "antd";
 import { RightOutlined } from '@ant-design/icons'
 import Link from "next/link";
 const MoviesAndSeries = ({ Title, Data, UrlImage, limite, direccionVerMas, direccion, tipoDeCarta }) => {
@@ -10,12 +10,12 @@ const MoviesAndSeries = ({ Title, Data, UrlImage, limite, direccionVerMas, direc
     <div className="ContentCards">
       <div className='Title_Peliculas'>
         {Title}
-       
-          <Link href={'/' + direccionVerMas} className="VerMas">
-            <Button className="VerMas_Button" type={'primary'}>VER MAS <RightOutlined /></Button>
-          </Link>
+
+        <Link href={'/' + direccionVerMas} className="VerMas">
+          <Button size={'small'} className="VerMas_Button" type={'primary'}>VER MAS <RightOutlined /></Button>
+        </Link>
       </div>
-      <div className={tipoDeCarta ? 'Row_Cards' : 'Row_Cards_Horizontal'}>
+      <Row wrap className={tipoDeCarta ? 'Row_Cards' : 'Row_Cards_Horizontal'}>
         {auxData.map(function (i) {
           return (
             <Cards
@@ -33,7 +33,7 @@ const MoviesAndSeries = ({ Title, Data, UrlImage, limite, direccionVerMas, direc
 
         })
         }
-      </div>
+      </Row>
 
 
     </div>

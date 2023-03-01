@@ -1,3 +1,5 @@
+@use '../mixsinc/mixins.scss';
+
 .ant-pagination {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -14,55 +16,45 @@
         border: 0 !important;
         border-radius: 0 !important;
         height: 40px !important;
-        width: 40px !important;
+        padding: 0 5px !important;
 
         a {
-
-            padding-top: 3px !important;
-            font-size: 2.2rem;
-            color: #000 !important;
+            @include mixins.pagination(2rem, 3px 0 0 0, #000);
         }
 
     }
 
     &-prev {
         .anticon {
-            padding-top: 5px;
-            font-size: 1.8rem;
-            color: #fff;
+            @include mixins.pagination(1.8rem, 5px 0 0 0, #fff);
         }
-
     }
 
     &-next {
         .anticon {
-            padding-top: 5px;
-            font-size: 1.8rem;
-            color: #fff;
+            @include mixins.pagination(1.8rem, 5px 0 0 0, #fff);
         }
+
     }
 
+
     &-jump-prev {
-        .ant-pagination-item-ellipsis{
-            color: #fff !important;
-            padding-top: 4px;
+        .ant-pagination-item-ellipsis {
+            @include mixins.pagination('', 4px 0 0 0, #fff);
         }
+
         .anticon {
-            padding-top: 8px !important;
-            color: #fff !important;
-            font-size: 1.4rem !important;
+            @include mixins.pagination(1.4rem, 8px 0 0 0, #fff);
         }
     }
 
     &-jump-next {
-        .ant-pagination-item-ellipsis{
-            color: #fff !important;
-            padding-top: 4px;
+        .ant-pagination-item-ellipsis {
+            @include mixins.pagination('', 4px 0 0 0, #fff);
         }
+
         .anticon {
-            padding-top: 8px !important;
-            color: #fff !important;
-            font-size: 1.4rem !important;
+            @include mixins.pagination(1.4rem, 8px 0 0 0, #fff);
         }
 
 

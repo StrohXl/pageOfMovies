@@ -1,24 +1,33 @@
-.Carousel{
-    margin-top: 3rem;
-    height: 400px !important;
-    &_img{
+@use '../mixsinc/mixins.scss';
+
+.carousel {
+    @include mixins.caja(400px, 230px, '', 2rem 0 0 0, '', '');
+    @include mixins.caja(800px, 300px, '', '', '', '');
+    @include mixins.caja(1200px, '', '', '', '', '');
+    @include mixins.caja(1600px, 400px, '', '', '', '');
+
+    &-content-title {
+        position: absolute;
+        margin-left: 1rem;
+        @include mixins.ordenarTexto(400px, flex, '', '', column, '','');
+    }
+
+    &_img {
         height: 100%;
         width: 100%;
     }
-    &_Title{
-        font-weight:bold;
-        margin-left: 1rem;
-        position: absolute;
-        font-size: 3rem;
-        color: #fff;
+
+    &_Title {
+        @include mixins.texto(400px, 1.5rem, bold, #fff);
+        @include mixins.texto(800px, 2rem, '', '');
+        @include mixins.texto(1200px, 2.5rem, '', '');
+        @include mixins.texto(1600px, 3rem, '', '');
     }
-    &_Year{
-        font-weight:600;
-        margin-left: 1rem;
-        margin-top: 3.5rem;
-        position: absolute;
-        font-size:1.5rem;
-        color: #fff;
+
+    &_Year {
+        @include mixins.texto(400px, 1rem, 600, #fff);
+        @include mixins.texto(800px, 1.5rem, '', '');
+        @include mixins.texto(1200px, 2rem, '', '');
     }
-  
+
 }

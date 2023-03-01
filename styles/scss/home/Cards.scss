@@ -1,28 +1,57 @@
-@use '../mixsinc/mixinsFlex';
-.ant-card-body{
+@use '../mixsinc/mixins';
+
+.ant-card-body {
     padding: 0 !important;
     width: 100% !important;
 }
-.ContentCards{
+
+.ContentCards {
     margin-top: 1rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #ddd;
 }
+
+.Row_Cards {
+    flex-wrap: wrap;
+    display: flex !important;
+    justify-content: space-around
+
+}
+
 .Col_Cards {
+    @include mixins.caja(400px, 240px, 45%, 15px 10px, '', '');
+    @include mixins.caja(600px, 280px, 29%, 15px 10px, '', '');
+    @include mixins.caja(800px, 280px, 22%, 15px 10px, '', '');
+    @include mixins.caja(1600px, 340px, '', '', '', '');
+}
+
+.Col_Cards_Horizontal {
     margin: 15px 15px;
 }
 
-.Title_Peliculas {
-    @include mixinsFlex.display-flex(space-between);
-    font-weight: 600;
-    margin-top: 2rem;
-    font-size: 2rem;
-    color: #fff !important;
-    padding-left: 1rem;
-    border-left: 6px solid rgb(0, 122, 222);
-    margin-bottom: 1rem;
+
+.VerMas {
+    @include mixins.display-flex(end);
+
+    &_Button {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        @include mixins.texto(400px, 0.8rem, '', '');
+        @include mixins.texto(1600px, 1rem, '', '');
+
+
+    }
 }
-.ant-col-5{
+
+.Title_Peliculas {
+    @include mixins.display-flex(space-between);
+    @include mixins.caja(400px, '', '', 2rem 0 1rem, 0 0 0 0.5rem, '');
+    @include mixins.texto(400px, 1.4rem, 600, #fff);
+    @include mixins.texto(1600px, 1.8rem, 600, #fff);
+    border-left: 6px solid rgb(0, 122, 222);
+
+}
+
+.ant-col-5 {
     width: 100px !important;
     height: 374.94px !important;
 }
@@ -31,9 +60,9 @@
     border-radius: 0 !important;
     background-color: #aaa;
     width: 100% !important;
-    height: 374.94px !important;
-   
-    &_Images {   
+    height: 100% !important;
+
+    &_Images {
         height: 372px;
         width: 100%;
         border-radius: 0 !important;
@@ -41,58 +70,66 @@
 
     &_Body {
 
-        padding-left: 20px;
+        padding-left: 15px;
         padding-right: 20px;
-        padding-top: 20px;
+        padding-top: 10px;
 
         &_Title {
-            font-size: 22px;
-            font-weight: 600;
-            color: #fff;
+            padding-top: 5px;
+            @include mixins.texto(400px, 14px, 600, #fff);
+            @include mixins.texto(800px, 18px, 600, #fff);
+            @include mixins.texto(1600px, 22px, 600, #fff);
         }
 
         &_Year {
-            padding-top: 10px;
-            color: #aaa;
+            padding-top: 3px;
+            @include mixins.texto(400px, 10px, 600, #fff);
+            @include mixins.texto(400px, 13px, 600, #fff);
+            @include mixins.texto(1600px, 15px, 600, #fff);
+
         }
 
         &_Description {
+            @include mixins.texto(400px, 11px, 600, #fff);
+            @include mixins.texto(800px, 13px, 600, #fff);
+            @include mixins.texto(1600px, 16px, 600, #fff);
             padding-top: 10px;
             padding-right: 20px;
             color: #aaa;
             font-size: 15px;
-            height: 49%;
+            height: 47.5%;
             overflow: hidden;
         }
 
         &_Vote {
             position: absolute;
-            font-size: 1.2rem;
+            @include mixins.texto(400px, 17px, '', #ffcb0f);
             bottom: 0;
             right: 0;
             margin-bottom: 10px;
             padding-right: 10px;
-            @include mixinsFlex.display-flex(end);
-            color: #ffcb0f;
+            @include mixins.display-flex(end);
+   
         }
+
         &_Genres {
             position: absolute;
             font-size: 15px;
             bottom: 0;
-            left: 0;    
+            left: 0;
             margin-bottom: 10px;
         }
     }
-    
+
     &_Ver {
         width: 100%;
-        height: 372.94px;
+        height: 100%;
         opacity: 0;
         position: absolute;
         top: 0;
         display: flex;
     }
-    
+
     &_Icon {
         color: #fff;
     }

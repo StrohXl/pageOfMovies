@@ -1,70 +1,60 @@
-@use '../mixsinc/mixinsFlex.scss';
-.SiderNav{
+@use '../mixsinc/mixins.scss';
+
+.SiderNav {
    width: 95%;
 }
-.ant-layout-footer{
+
+.ant-layout-footer {
    margin-top: 50px !important;
    background: #001529 !important;
 }
-.ant-layout{
+
+.ant-layout {
    background: #000d1a !important;
 
 }
-.ant-layout-sider-children{
-   background: #000d1a !important;
+
+.ant-layout-sider {
+   @include mixins.caja(401px, '', '', '', '', none);
+
+   @media (min-width:1200px) {
+      width: 320px !important;
+      min-width: 320px !important;
+   }
+
+   @media (min-width:1400px) {
+      width: 350px !important;
+      min-width: 350px !important;
+
+   }
+   @media (min-width:1600px) {
+      width: 400px !important;
+      min-width: 400px !important;
+
+   }
+
+   @include mixins.caja(1201px, '', '', '', '', flex);
+
+   &-children {
+      box-sizing: initial !important;
+      @include mixins.caja(801px, '', '', '', '', '');
+      background: #000d1a !important;
+   }
 }
-.ContentMain{
+
+
+.ContentMain {
    margin: auto;
    width: 90%;
 }
-header{
-   height: 70px !important;
- @include mixinsFlex.display-flex(space-between);
- .Search{
-    width: 300px;
- }
- .SearchYear{
-   width: 50% !important;
- }
- .Title_Header{
-    color: white ;
-    font-weight: bold;
-    font-size: 2rem;
-  &:hover{
-   animation-name: color;
-   animation-duration: 10ms ;
-   color: #1677ff !important;
- }  
- }
 
-}
-.Row_Cards{
-   flex-wrap: wrap;
-   @include mixinsFlex.display-flex(center);
-}
-.ContentListAndMovies{
-   width: 90%;
+.ContentListAndMovies {
+   width: 95%;
    margin: auto;
    min-height: 100vh;
 }
-.VerMas{
-  
-   @include mixinsFlex.display-flex(end);
-   &_Button{
-      display: flex;
-      align-items: center;
-      font-size: 0.9rem !important;
-   
-   }
-}
-.ant-pagination-options{
+
+
+.ant-pagination-options {
    display: none !important;
 }
-
-   @media (max-width: 1200px) {
-      .ant-layout-sider{
-      display: none !important;
-      }
-   }
-
-

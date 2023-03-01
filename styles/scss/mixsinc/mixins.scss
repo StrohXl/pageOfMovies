@@ -1,0 +1,70 @@
+@mixin display-flex($justify) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: $justify !important;
+}
+
+@mixin display-none($min, $max) {
+    @media(min-width:$min) and (max-width:$max) {
+        display: none !important;
+    }
+}
+
+@mixin font-size($min, $size) {
+    @media(min-width:$min) {
+        font-size: $size !important;
+
+    }
+}
+
+@mixin alto-ancho-responsive($min, $alto, $ancho) {
+    @media(min-width:$min) {
+        height: $alto !important;
+        width: $ancho !important;
+    }
+
+}
+
+@mixin alto-ancho-margin($alto, $ancho, $margin) {
+    height: $alto !important;
+    width: $ancho !important;
+    margin: $margin;
+}
+
+@mixin pagination($size, $padding, $color) {
+    font-size: $size !important;
+    padding: $padding !important;
+    color: $color !important;
+}
+
+@mixin texto($min, $size, $weight, $color) {
+    @media(min-width: $min) {
+        font-size: $size !important;
+        font-weight: $weight !important;
+        color: $color !important;
+    }
+}
+
+@mixin caja($min, $altura, $anchura, $margin, $padding, $display) {
+    @media(min-width: $min) {
+        height: $altura !important;
+        width: $anchura !important;
+        margin: $margin !important;
+        padding: $padding !important;
+        display: $display !important;
+    }
+
+}
+
+@mixin ordenarTexto($min, $display, $justify, $items, $direction, $distancia, $wrap) {
+    @media(min-width: $min) {
+
+        display: $display;
+        align-items: $items;
+        justify-content: $justify;
+        flex-direction: $direction;
+        gap: $distancia;
+        flex-wrap: $wrap;
+    }
+
+}

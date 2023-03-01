@@ -1,9 +1,19 @@
-import {Input} from 'antd'
-const {Search} = Input
-const index = ({onSearch}) => {
+import { Input } from 'antd'
+import { useRouter } from 'next/router';
+const { Search } = Input
+const index = () => {
+
+    const router = useRouter()
+    const onSearch = (valor) => {
+        valor != '' ?
+            router.push('/search/' + valor) :
+            ''
+
+    }
+
     return (
-    
-            <Search allowClear size='large' className='Search' placeholder='Buscar' enterButton  onSearch={onSearch} />
+
+        <Search allowClear  size='large' className='Search' placeholder='Buscar Pelicula o Serie ' enterButton onSearch={onSearch} />
 
     );
 };
