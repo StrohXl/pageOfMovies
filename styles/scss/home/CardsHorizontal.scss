@@ -9,7 +9,7 @@
 .CardsHorizontal {
     border-radius: 0;
     @include mixins.caja(350px, 90px, 250px, '', '', '');
-    @include mixins.caja(750px, 90px, 320px, '', '', '');
+    @include mixins.caja(750px, 90px, 280px, '', '', '');
     @include mixins.caja(1400px, 95px, 320px, '', '', '');
     @include mixins.caja(1600px, 100px, 350px, '', '', '');
 
