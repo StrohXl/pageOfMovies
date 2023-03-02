@@ -11,16 +11,19 @@ const MovieIdAndCardId = ({ data, UrlImage, trailer }) => {
 
     const router = useRouter()
     const [openModal, setOpenModal] = useState(false)
-    const backdgrop = UrlImage + data.backdrop_path
     console.log(data)
-    const poster = UrlImage + data.poster_path
+    const backdgrop = UrlImage + data.backdrop_path
+    const poster  = UrlImage + data.poster_path
+
 
     return (
         <>
             {
                 data.backdrop_path == null ? '' :
-                    <div  className='content-background-image' style={{background: `linear-gradient( #00000099, #111), url(${backdgrop})`}}>
-                
+                    <div  className='content-background-image' >
+                        <Image quality={30} src={backdgrop}  alt={data.title || data.name} fill />
+                        <div className='contentBack'></div>
+    
                     </div>
             }
             {openModal ? <Modal  open={true} footer={null} onCancel={() => setOpenModal(false)} >
@@ -41,7 +44,7 @@ const MovieIdAndCardId = ({ data, UrlImage, trailer }) => {
             }
             <Row justify={'start'} wrap >
                 <Col  className='Col-Info-Image' >
-                    <Image alt={data.title || data.name} loader={() => poster} src={poster} fill />
+                    <Image quality={30} alt={data.title || data.name} src={poster} fill />
                 </Col>
                 <Col className='Col-Info-Movie'>
                     <h1 className='Col-Info-Movie-Title'>{data.title || data.name}</h1>

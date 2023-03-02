@@ -1,6 +1,7 @@
 import { Layout, ConfigProvider, Affix, Button } from "antd"
 import 'antd/dist/reset.css';
 import '../styles/globals.scss'
+import Foter from '../components/Footer'
 import Search from '../components/Search'
 import { useRouter } from "next/router";
 import Icon from "@mdi/react";
@@ -46,7 +47,9 @@ export default function App({ Component, pageProps }) {
            <SiderNav/>
           </Sider>}
         </Layout>
-        <Footer >Footer</Footer>
+        <Footer >
+          <Foter/>
+        </Footer>
       </Layout>
     </ConfigProvider>
   )

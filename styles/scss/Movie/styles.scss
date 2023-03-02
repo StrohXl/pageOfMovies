@@ -17,11 +17,29 @@
     }
 }
 
+.contentBack{
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background-color: #000000ab;
+    position: absolute;
+    height: 520px;
+    @media (min-width:400px) and (max-width:851px) {
+        background-size: 100% 840px !important;
+        height: 840px !important;
 
+    }
+
+    @media (min-width: 1601px) {
+        background-size: 100% 620px !important;
+        height: 620px !important;
+    }
+
+}
 .content-background-image {
     background-size: 100% 520px !important;
     background-repeat: no-repeat !important;
-    top: 60px;
+    top: 64px;
     left: 0;
     width: 100%;
     position: absolute;
