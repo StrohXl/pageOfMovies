@@ -3,9 +3,10 @@
 .Filtrado {
   &_Options {
     margin-left: 1rem;
-    @include mixins.texto(400px, 1rem, 600, #fff);
+    @include mixins.texto(350px, 1rem, 600, #fff);
+    @include mixins.texto(1200px, 1.1rem, '', '');
     @include mixins.texto(1600px, 1.2rem, '', '');
-    @include mixins.ordenarTexto(400px, flex, '', '', column, 10px, '');
+    @include mixins.ordenarTexto(350px, flex, '', '', column, 10px, '');
     margin-bottom: 1rem;
   }
 

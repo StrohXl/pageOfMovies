@@ -32,11 +32,11 @@ header {
 
     .Search {
         width: 300px;
-        @include mixins.display-none('400px', '1100px');
+        @include mixins.display-none('350px', '1100px');
     }
 
     .ant-menu-overflow {
-        @include mixins.display-none('400px', '1100px');
+        @include mixins.display-none('350px', '1100px');
         width: 500px;
         height: 100% !important;
         @include mixins.display-flex(space-between);

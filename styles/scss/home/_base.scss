@@ -15,11 +15,12 @@
 }
 
 .ant-layout-sider {
-   @include mixins.caja(401px, '', '', '', '', none);
+   @include mixins.caja(350px, '', '', '', '', none);
 
    @media (min-width:1200px) {
       width: 320px !important;
       min-width: 320px !important;
+      display: flex !important;
    }
 
    @media (min-width:1400px) {
@@ -33,11 +34,8 @@
 
    }
 
-   @include mixins.caja(1201px, '', '', '', '', flex);
-
    &-children {
       box-sizing: initial !important;
-      @include mixins.caja(801px, '', '', '', '', '');
       background: #000d1a !important;
    }
 }

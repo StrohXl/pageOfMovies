@@ -17,7 +17,7 @@
 }
 
 .Col_Cards {
-    @include mixins.caja(400px, 240px, 45%, 15px 10px, '', '');
+    @include mixins.caja(350px, 240px, 45%, 15px 10px, '', '');
     @include mixins.caja(600px, 280px, 29%, 15px 10px, '', '');
     @include mixins.caja(800px, 280px, 22%, 15px 10px, '', '');
     @include mixins.caja(1600px, 340px, '', '', '', '');
@@ -35,7 +35,7 @@
         display: flex;
         align-items: center;
         margin-right: 10px;
-        @include mixins.texto(400px, 0.8rem, '', '');
+        @include mixins.texto(350px, 0.8rem, '', '');
         @include mixins.texto(1600px, 1rem, '', '');
 
 
@@ -44,8 +44,8 @@
 
 .Title_Peliculas {
     @include mixins.display-flex(space-between);
-    @include mixins.caja(400px, '', '', 2rem 0 1rem, 0 0 0 0.5rem, '');
-    @include mixins.texto(400px, 1.4rem, 600, #fff);
+    @include mixins.caja(350px, '', '', 2rem 0 1rem, 0 0 0 0.5rem, '');
+    @include mixins.texto(350px, 1.4rem, 600, #fff);
     @include mixins.texto(1600px, 1.8rem, 600, #fff);
     border-left: 6px solid rgb(0, 122, 222);
 
@@ -76,21 +76,21 @@
 
         &_Title {
             padding-top: 5px;
-            @include mixins.texto(400px, 14px, 600, #fff);
+            @include mixins.texto(350px, 14px, 600, #fff);
             @include mixins.texto(800px, 18px, 600, #fff);
             @include mixins.texto(1600px, 22px, 600, #fff);
         }
 
         &_Year {
             padding-top: 3px;
-            @include mixins.texto(400px, 10px, 600, #fff);
-            @include mixins.texto(400px, 13px, 600, #fff);
+            @include mixins.texto(350px, 10px, 600, #fff);
+            @include mixins.texto(1200px, 13px, 600, #fff);
             @include mixins.texto(1600px, 15px, 600, #fff);
 
         }
 
         &_Description {
-            @include mixins.texto(400px, 11px, 600, #fff);
+            @include mixins.texto(350px, 11px, 600, #fff);
             @include mixins.texto(800px, 13px, 600, #fff);
             @include mixins.texto(1600px, 16px, 600, #fff);
             padding-top: 10px;
@@ -103,7 +103,7 @@
 
         &_Vote {
             position: absolute;
-            @include mixins.texto(400px, 17px, '', #ffcb0f);
+            @include mixins.texto(350px, 17px, '', #ffcb0f);
             bottom: 0;
             right: 0;
             margin-bottom: 10px;
