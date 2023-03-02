@@ -15,7 +15,7 @@
 }
 
 .ant-layout-sider {
-   @include mixins.caja(350px, '', '', '', '', none);
+   @include mixins.caja(250px, '', '', '', '', none);
 
    @media (min-width:1200px) {
       width: 320px !important;

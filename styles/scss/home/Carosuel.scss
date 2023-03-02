@@ -1,7 +1,7 @@
 @use '../mixsinc/mixins.scss';
 
 .carousel {
-    @include mixins.caja(350px, 230px, '', 2rem 0 0 0, '', '');
+    @include mixins.caja(250px, 230px, '', 2rem 0 0 0, '', '');
     @include mixins.caja(800px, 300px, '', '', '', '');
     @include mixins.caja(1200px, '', '', '', '', '');
     @include mixins.caja(1600px, 400px, '', '', '', '');
@@ -9,7 +9,7 @@
     &-content-title {
         position: absolute;
         margin-left: 1rem;
-        @include mixins.ordenarTexto(350px, flex, '', '', column, '','');
+        @include mixins.ordenarTexto(250px, flex, '', '', column, '','');
     }
 
     &_img {
@@ -18,14 +18,14 @@
     }
 
     &_Title {
-        @include mixins.texto(350px, 1.2rem, bold, #fff);
+        @include mixins.texto(250px, 1.2rem, bold, #fff);
         @include mixins.texto(800px, 2rem, '', '');
         @include mixins.texto(1200px, 2.5rem, '', '');
         @include mixins.texto(1600px, 3rem, '', '');
     }
 
     &_Year {
-        @include mixins.texto(350px, 1rem, 600, #fff);
+        @include mixins.texto(250px, 1rem, 600, #fff);
         @include mixins.texto(800px, 1.5rem, '', '');
         @include mixins.texto(1200px, 2rem, '', '');
     }

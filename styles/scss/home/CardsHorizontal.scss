@@ -8,7 +8,7 @@
 
 .CardsHorizontal {
     border-radius: 0;
-    @include mixins.caja(350px, 90px, 250px, '', '', '');
+    @include mixins.caja(250px, 90px, 250px, '', '', '');
     @include mixins.caja(750px, 90px, 280px, '', '', '');
     @include mixins.caja(1400px, 95px, 320px, '', '', '');
     @include mixins.caja(1600px, 100px, 350px, '', '', '');
@@ -33,7 +33,7 @@
         padding-top: 1px;
 
         &_Title {
-            @include mixins.texto(350px, 1rem, '', #fff);
+            @include mixins.texto(250px, 1rem, '', #fff);
             @include mixins.texto(1200px, 1.2rem, '', #fff);
             @include mixins.texto(1600px, 1.5rem, '', #fff);
             opacity: 0;

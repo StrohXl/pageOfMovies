@@ -1,11 +1,11 @@
 @use '../mixsinc/mixins.scss';
 .ant-modal {
-    @include mixins.caja(350px, '', 90%, '', '', '');
+    @include mixins.caja(250px, '', 90%, '', '', '');
     .ant-modal-content {
         background-color: #000 !important;
     
         .reproductor-trailer {
-            @include mixins.caja(350px, 400px, '', '', '', '');
+            @include mixins.caja(250px, 400px, '', '', '', '');
             @include mixins.caja(1600px, 600px, '', '', '', '');
             margin-top: 2rem;
         }
@@ -24,7 +24,7 @@
     background-color: #000000ab;
     position: absolute;
     height: 520px;
-    @media (min-width:350px) and (max-width:851px) {
+    @media (min-width:250px) and (max-width:851px) {
         background-size: 100% 840px !important;
         height: 840px !important;
 
@@ -45,7 +45,7 @@
     position: absolute;
     height: 520px;
 
-    @media (min-width:350px) and (max-width:851px) {
+    @media (min-width:250px) and (max-width:851px) {
         background-size: 100% 840px !important;
         height: 840px !important;
 
@@ -70,7 +70,7 @@
 
 .Col-Info-Movie {
     font-size: 1rem;
-    @include mixins.caja(350px, '', '', 0 0 1rem, '', '');
+    @include mixins.caja(250px, '', '', 0 0 1rem, '', '');
     @include mixins.caja(851px, '', 50%, '', '', '');
     @include mixins.alto-ancho-responsive(1201px, '', 60%);
     @include mixins.alto-ancho-responsive(1601px, '', '');
