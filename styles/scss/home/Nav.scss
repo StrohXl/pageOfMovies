@@ -29,7 +29,8 @@ header {
     @include mixins.display-flex(space-between);
 
     .Title_Header {
-        @include mixins.texto(250px,1.5rem,bold,#fff);
+        @include mixins.texto(250px,1.2rem,bold,#fff);
+        @include mixins.texto(500px,1.5rem,bold,#fff);
         @include mixins.texto(800px,1.7rem,'','');
         @include mixins.texto(1200px,2rem,'','');
 
