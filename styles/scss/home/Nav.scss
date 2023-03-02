@@ -27,6 +27,9 @@
 header {
     height: 60px;
     @include mixins.display-flex(space-between);
+    @media (min-width:250px) and (max-width:800px){
+        padding-inline: 10px !important;
+    }
 
     .Title_Header {
         @include mixins.texto(250px,1.2rem,bold,#fff);
