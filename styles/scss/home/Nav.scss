@@ -29,9 +29,9 @@ header {
     @include mixins.display-flex(space-between);
 
     .Title_Header {
-        color: white;
-        font-weight: bold;
-        font-size: 2rem;
+        @include mixins.texto(250px,1.5rem,bold,#fff);
+        @include mixins.texto(800px,1.7rem,'','');
+        @include mixins.texto(1200px,2rem,'','');
 
     }
 
