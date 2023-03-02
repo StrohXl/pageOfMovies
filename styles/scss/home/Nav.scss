@@ -9,6 +9,11 @@
 }
 
 .ant-drawer {
+    &-content-wrapper{
+        @include mixins.caja(750px, '', 350px,'', '', '');
+
+    }
+  
     @include mixins.display-none('1201px', '3000px');
     &-header{
         padding: 5px 10px !important;

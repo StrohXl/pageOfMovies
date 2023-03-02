@@ -37,6 +37,7 @@ const MenuResponsive = ({ openDrawer, closeDrawer }) => {
     useEffect(() => { LoadData() }, [])
     return (
         <Drawer
+            width={280}
             open={openDrawer}
             onClose={closeDrawer}
             title={

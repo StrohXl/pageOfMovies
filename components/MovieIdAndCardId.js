@@ -52,7 +52,7 @@ const MovieIdAndCardId = ({ data, UrlImage, trailer }) => {
                         <Space style={{flexWrap: 'wrap'}}>
                             <span className='Col-Info-Movie-Year'>{data.release_date || data.first_air_date}</span>
                             <span className='Col-Info-Movie-Genres'>
-                                <Space >
+                                <Space style={{flexWrap: 'wrap'}} >
                                     {data.genres?.map(function (i) {
                                         return (
                                             <Link key={i.id} href={router.pathname == '/movies/[id]' ? `/movies/genres/${i.id}` : `/tv/genres/${i.id}`} className="VerMas">
