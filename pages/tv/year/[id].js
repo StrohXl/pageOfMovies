@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Pagination } from 'antd';
 import { useRouter } from 'next/router';
-import Filtrado from '../../../components/Filtrado';
 import List from '../../../components/ListMoviesAndTv';
 const index = () => {
     //Variables de estado
     const router = useRouter()
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
     const [pagina, setPagina] = useState(1)
     const year = router.query.id
     //Variables Url
@@ -18,7 +18,7 @@ const index = () => {
  
 
     const LoadData = async () => {
-        
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/discover/tv`, {
             params: {
                 api_key: KeyApi,
@@ -27,7 +27,7 @@ const index = () => {
                 first_air_date_year: year,
             }
         })
-
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadData() }, [year])
@@ -40,7 +40,7 @@ const index = () => {
     return (
         <div className='ContentListAndMovies'>
             
-            <List tipoDeCarta={true} Data={data} Title={`Series ${year}`} UrlImage={UrlImage} limite={20} direccion='tv' />
+            <List loading={loading} tipoDeCarta={true} Data={data} Title={`Series ${year}`} UrlImage={UrlImage} limite={20} direccion='tv' />
             <div style={{textAlign: 'center'}}>
                 <Pagination onChange={onChangePage} defaultCurrent={pagina} current={pagina}  total={1000} />
             </div>

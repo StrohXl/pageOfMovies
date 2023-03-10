@@ -14,12 +14,16 @@ export default function Home() {
   const router = useRouter()
   // Variables de estado
   const [movies, setMovies] = useState([]);
-  const [moviesPopular, setMoviesPopular] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+  const [loading3, setLoading3] = useState(true);
   const [tv, setTv] = useState([]);
   const [now, setNow] = useState([]);
-  const [latest, setLatest] = useState([]);
   // Funciones
   const LoadData = async (searchKey) => {
+    setLoading(true)
+    setLoading2(true)
+    setLoading3(true)
     const { data: { results } } = await axios.get(`${ApiUrl}/discover/movie`, {
       params: {
         api_key: KeyApi,
@@ -27,13 +31,7 @@ export default function Home() {
         page: 8
       }
     })
-    const auxData = await axios.get(`${ApiUrl}/movie/popular`, {
-      params: {
-        api_key: KeyApi,
-        language: 'es',
-        page: 1,
-      }
-    })
+    setMovies(results)
     const now = await axios.get(`${ApiUrl}/movie/now_playing`, {
       params: {
         api_key: KeyApi,
@@ -41,16 +39,18 @@ export default function Home() {
         page: 1,
       }
     })
+    setNow(now.data.results)
     const seeTv = await axios.get(`${ApiUrl}/discover/tv`, {
       params: {
         api_key: KeyApi,
         language: 'es',
       }
     })
-    setLatest(auxData.data.results)
     setTv(seeTv.data.results)
-    setNow(now.data.results)
-    setMovies(results)
+    setLoading(false)
+    setLoading2(false)
+    setLoading3(false)
+
   }
   useEffect(() => { LoadData() }, [])
   return (
@@ -63,9 +63,9 @@ export default function Home() {
       </Head>
       <div className="ContentListAndMovies">
         <Carousel />
-        <Movies tipoDeCarta={true} Title={'Peliculas'} Data={movies} UrlImage={UrlImage} limite={8} direccion={'movies'} direccionVerMas='movies/pages/1' />
-        <Movies tipoDeCarta={true} Title={'Series'} Data={tv} UrlImage={UrlImage} limite={8} direccion='tv' direccionVerMas='tv/pages/1' />
-        <Movies tipoDeCarta={true} Title={'Peliculas en cines'} Data={now} UrlImage={UrlImage} limite={8} direccion='movies' direccionVerMas='movies/nowPlaying/1' />
+        <Movies loading={loading} tipoDeCarta={true} Title={'Peliculas'} Data={movies} UrlImage={UrlImage} limite={8} direccion={'movies'}  />
+        <Movies loading={loading2} tipoDeCarta={true} Title={'Series'} Data={tv} UrlImage={UrlImage} limite={8} direccion='tv' />
+        <Movies loading={loading3} tipoDeCarta={true} Title={'Peliculas en cines'} Data={now} UrlImage={UrlImage} limite={8} direccion='movies' />
 
 
       </div>

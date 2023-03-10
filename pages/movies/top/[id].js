@@ -9,6 +9,7 @@ const index = () => {
     //Variables de estado
     const router = useRouter()
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
     const [pagina, setPagina] = useState(1)
     //Variables Url
     const ApiUrl = 'https://api.themoviedb.org/3'
@@ -16,6 +17,7 @@ const index = () => {
     const UrlImage = 'https://image.tmdb.org/t/p/original'
     //Funciones
     const LoadData = async () => {
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/movie/top_rated`, {
             params: {
                 api_key: KeyApi,
@@ -24,6 +26,7 @@ const index = () => {
 
             }
         })
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadData() }, [pagina])
@@ -35,6 +38,7 @@ const index = () => {
         <div className='ContentListAndMovies'>
 
             <List
+                loading={loading}
                 tipoDeCarta={true}
                 Data={data}
                 Title='Peliculas Mejor valoradas'

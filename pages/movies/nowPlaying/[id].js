@@ -10,6 +10,7 @@ const index = () => {
     const rutaPagina = router.query.id
     const [data, setData] = useState([])
     const [pagina, setPagina] = useState(rutaPagina)
+    const [loading, setLoading] = useState(true)
 
     //Variables Url
     const ApiUrl = 'https://api.themoviedb.org/3'
@@ -19,7 +20,7 @@ const index = () => {
  
 
     const LoadData = async () => {
-        
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/movie/now_playing`, {
             params: {
                 api_key: KeyApi,
@@ -27,7 +28,7 @@ const index = () => {
                 page: rutaPagina,
             }
         })
-
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadData() }, [rutaPagina])
@@ -40,7 +41,7 @@ const index = () => {
     return (
         <div className='ContentListAndMovies' >
             
-            <List tipoDeCarta={true} Data={data} Title='Peliculas en Cines' UrlImage={UrlImage} limite={20} direccion='movies' />
+            <List loading={loading} tipoDeCarta={true} Data={data} Title='Peliculas en Cines' UrlImage={UrlImage} limite={20} direccion='movies' />
             <div style={{textAlign: 'center', fontSize: 30}}>
                 <Pagination onChange={onChangePage} defaultCurrent={pagina} current={pagina}  total={740} />
             </div>

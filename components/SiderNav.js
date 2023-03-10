@@ -17,8 +17,12 @@ const SiderNav = () => {
     //Variables de estado
     const [tvAiringToday, setTvAiringToday] = useState([]);
     const [movieTop, setMovieTop] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [loading2, setLoading2] = useState(true);
     //Funciones
     const LoadData = async () => {
+        setLoading(true)
+        setLoading2(true)
         const { data: { results } } = await axios.get(ApiUrl + '/tv/airing_today', {
             params: {
                 api_key: KeyApi,
@@ -31,6 +35,8 @@ const SiderNav = () => {
                 language: 'es',
             }
         })
+        setLoading(false)
+        setLoading2(false)
         setMovieTop(auxData.data.results)
         setTvAiringToday(results)
     }
@@ -47,6 +53,7 @@ const SiderNav = () => {
             }
 
             <MoviesAndTv
+                loading={loading}
                 Title={'Series en Emision'}
                 tipoDeCarta={false}
                 Data={tvAiringToday}
@@ -55,6 +62,7 @@ const SiderNav = () => {
                 direccion='tv'
                 direccionVerMas='tv/airing_today/1' />
             <MoviesAndTv
+                loading={loading2}
                 Title={'Peliculas mejor Valoradas'}
                 tipoDeCarta={false}
                 Data={movieTop}

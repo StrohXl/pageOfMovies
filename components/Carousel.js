@@ -34,7 +34,7 @@ const index = () => {
                                 <span className="carousel_Title">{i.title}</span>
                                 <span className="carousel_Year">2023</span>
                             </div>
-                            <Image priority={true} width={400} height={400} src={UrlImage + i.backdrop_path} style={{width: '100%', height: '100%'}} alt={i.title} />
+                            <Image quality={10} priority={true} width={400} height={400} src={UrlImage + i.backdrop_path} style={{width: '100%', height: '100%'}} alt={i.title} />
                         </Link>
                     </div>
                 )

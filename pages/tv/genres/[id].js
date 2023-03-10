@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { Pagination } from 'antd';
-import Filtrado from '../../../components/Filtrado';
 import List from '../../../components/ListMoviesAndTv';
 const index = () => {
     //Variables de estado
@@ -10,16 +9,18 @@ const index = () => {
     const [data, setData] = useState([])
     const [pagina, setPagina] = useState(1)
     const [year, setYear] = useState('')
+    const [loading, setLoading] = useState(true)
     const [genres, setGenres] = useState()
     const [idGenres, setIdGenres] = useState()
     //Variables
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
     const UrlImage = 'https://image.tmdb.org/t/p/original'
- 
+
 
     //Funciones
-    const LoadGenres= async() =>{
+    const LoadGenres = async () => {
+
         const idGenres = router.query.id
         const { data: { genres } } = await axios.get(`${ApiUrl}/genre/tv/list`, {
             params: {
@@ -33,7 +34,7 @@ const index = () => {
         LoadData(idGenres)
     }
     const LoadData = async (idGenres) => {
-
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/discover/tv`, {
             params: {
                 api_key: KeyApi,
@@ -43,7 +44,7 @@ const index = () => {
                 with_genres: idGenres,
             }
         })
-
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadGenres() }, [pagina, router.query.id])
@@ -57,7 +58,7 @@ const index = () => {
         <div className='ContentListAndMovies' >
 
 
-            <List tipoDeCarta={true} Data={data} Title={`Series de ${genres}`} UrlImage={UrlImage} limite={20} direccion='tv' />
+            <List loading={loading} tipoDeCarta={true} Data={data} Title={`Series de ${genres}`} UrlImage={UrlImage} limite={20} direccion='tv' />
             <div style={{ textAlign: 'center', fontSize: 30 }}>
                 <Pagination onChange={onChangePage} defaultCurrent={1} current={pagina} total={1000} />
             </div>

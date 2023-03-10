@@ -8,7 +8,7 @@ const index = ({ srcImage, title, id, year, description, vote, direccion, genero
     return (
         <Col className={tipoDeCarta ? "Col_Cards" : "Col_Cards_Horizontal"} >
             <Card className={tipoDeCarta ? "Cards" : "CardsHorizontal"} hoverable >
-                <Image quality={40} alt={title} src={srcImage} fill />
+                <Image quality={5} alt={title} src={srcImage} fill />
                 <Link className={tipoDeCarta ? "Cards_Ver" : "CardsHorizontal_Ver"} href={`/${direccion}/${id}`} >
                     <div className={tipoDeCarta ? "Cards_Body" : "CardsHorizontal_Body"}>
                         <div className={tipoDeCarta ? "Cards_Body_Title" : "CardsHorizontal_Body_Title"}>{title}</div>

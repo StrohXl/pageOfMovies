@@ -12,6 +12,7 @@ const index = () => {
     const [year, setYear] = useState('')
     const [genres, setGenres] = useState()
     const [idGenres, setIdGenres] = useState()
+    const [loading, setLoading] = useState(true)
     //Variables
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
@@ -33,7 +34,7 @@ const index = () => {
         LoadData(idGenres)
     }
     const LoadData = async (idGenres) => {
-
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/discover/movie`, {
             params: {
                 api_key: KeyApi,
@@ -43,7 +44,7 @@ const index = () => {
                 with_genres: idGenres,
             }
         })
-
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadGenres() }, [pagina, router.query.id])
@@ -57,7 +58,7 @@ const index = () => {
         <div className='ContentListAndMovies' >
 
 
-            <List tipoDeCarta={true} Data={data} Title={`Peliculas de ${genres}`} UrlImage={UrlImage} limite={20} direccion='movies' />
+            <List loading={loading} tipoDeCarta={true} Data={data} Title={`Peliculas de ${genres}`} UrlImage={UrlImage} limite={20} direccion='movies' />
             <div style={{ textAlign: 'center', fontSize: 30 }}>
                 <Pagination onChange={onChangePage} defaultCurrent={1} current={pagina} total={1000} />
             </div>

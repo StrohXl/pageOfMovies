@@ -10,12 +10,14 @@ const index = () => {
     const router = useRouter()
     const [data, setData] = useState([])
     const [pagina, setPagina] = useState(1)
+    const [loading, setLoading] = useState(true)
     //Variables Url
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
     const UrlImage = 'https://image.tmdb.org/t/p/original'
     //Funciones
     const LoadData = async () => {
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/discover/tv`, {
             params: {
                 api_key: KeyApi,
@@ -23,7 +25,7 @@ const index = () => {
                 page: pagina
             }
         })
-
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadData() }, [pagina])
@@ -34,6 +36,7 @@ const index = () => {
     return (
         <div className='ContentListAndMovies'>
             <List
+                loading={loading}
                 tipoDeCarta={true}
                 Data={data}
                 Title='Series'

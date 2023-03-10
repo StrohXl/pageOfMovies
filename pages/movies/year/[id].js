@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Pagination } from 'antd';
 import { useRouter } from 'next/router';
-import Filtrado from '../../../components/Filtrado';
 import List from '../../../components/ListMoviesAndTv';
 const index = () => {
     //Variables de estado
@@ -10,7 +9,7 @@ const index = () => {
     const [data, setData] = useState([])
     const [pagina, setPagina] = useState(1)
     const year = router.query.id
-    const [popu, setPopu] = useState('')
+    const [loading, setLoading] = useState(true)
     //Variables Url
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
@@ -19,7 +18,7 @@ const index = () => {
  
 
     const LoadData = async () => {
-        
+        setLoading(true)
         const { data: { results } } = await axios.get(`${ApiUrl}/discover/movie`, {
             params: {
                 api_key: KeyApi,
@@ -29,7 +28,7 @@ const index = () => {
 
             }
         })
-
+        setLoading(false)
         setData(results)
     }
     useEffect(() => { LoadData() }, [year, pagina])
@@ -42,7 +41,7 @@ const index = () => {
     return (
         <div className='ContentListAndMovies' >
             
-            <List tipoDeCarta={true} Data={data} Title={`Peliculas ${year}`} UrlImage={UrlImage} limite={20} direccion='movies' />
+            <List loading={loading} tipoDeCarta={true} Data={data} Title={`Peliculas ${year}`} UrlImage={UrlImage} limite={20} direccion='movies' />
             <div style={{textAlign: 'center'}}>
                 <Pagination onChange={onChangePage} defaultCurrent={pagina} current={pagina}  total={1000} />
             </div>

@@ -8,6 +8,8 @@ const Pelicula = () => {
   const [data, setData] = useState([])
   const [similar, setSimilar] = useState([])
   const [trailer, setTrailer] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [loading2, setLoading2] = useState(true)
 
   const [moviesRecomendation, setMoviesRecomendeation] = useState([])
   //Variables Url
@@ -19,6 +21,7 @@ const Pelicula = () => {
   const pelicula = router.query.id
   //Funciones
   const LoadData = async () => {
+    setLoading(true)
     const { data } = await axios.get(`${ApiUrl}/movie/${pelicula}`, {
       params: {
         api_key: KeyApi,
@@ -29,6 +32,11 @@ const Pelicula = () => {
     const trailer = data.videos.results.filter(i => i.name.includes('Trailer') || i.name.includes('Tráiler'))
     setTrailer(trailer)
     setData(data)
+
+    setLoading(false)
+  }
+  const LoadList = async () => {
+    setLoading2(true)
     const similar = await axios.get(`${ApiUrl}/movie/${pelicula}/similar`, {
       params: {
         api_key: KeyApi,
@@ -36,7 +44,6 @@ const Pelicula = () => {
       }
     })
     setSimilar(similar.data.results)
-
     const { data: { results } } = await axios.get(`${ApiUrl}/movie/${pelicula}/recommendations`, {
       params: {
         api_key: KeyApi,
@@ -44,9 +51,10 @@ const Pelicula = () => {
       }
     })
     setMoviesRecomendeation(results)
+    setLoading2(false)
 
   }
-  useEffect(() => { LoadData() }, [pelicula])
+  useEffect(() => { LoadData(), LoadList() }, [pelicula])
 
 
   return (
@@ -56,9 +64,10 @@ const Pelicula = () => {
 
 
 
-      <MovieIdAndCardId data={data} UrlImage={UrlImage} trailer={trailer} />
+      <MovieIdAndCardId loading={loading} data={data} UrlImage={UrlImage} trailer={trailer} />
       {moviesRecomendation.length == 0 ? '' :
         <List
+          loading={loading2}
           tipoDeCarta={true}
           Data={moviesRecomendation}
           Title='Peliculas recomendadas'
@@ -68,6 +77,7 @@ const Pelicula = () => {
         />}
       {similar.length == 0 ? '' :
         <List
+          loading={loading2}
           tipoDeCarta={true}
           Data={similar}
           Title='Peliculas similares'

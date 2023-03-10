@@ -5,6 +5,8 @@ import axios from 'axios';
 import MovieIdAndCardId from '../../components/MovieIdAndCardId';
 const Tv = () => {
   //Variables de estado
+    const [loading, setLoading] = useState(true)
+  const [loading2, setLoading2] = useState(true)
   const [data, setData] = useState([])
   const [trailer, setTrailer] = useState()
   const [tvSimilar, setTvSimilar] = useState([])
@@ -18,6 +20,7 @@ const Tv = () => {
   const serie = router.query.id
   //Funciones
   const LoadData = async (query) => {
+    setLoading(true)
     const { data } = await axios.get(`${ApiUrl}/tv/${serie}`, {
       params: {
         api_key: KeyApi,
@@ -25,47 +28,57 @@ const Tv = () => {
         append_to_response: 'videos'
       }
     })
+
+    const trailer = data.videos.results.filter(i => i.name.includes('Trailer') || i.name.includes('Tráiler'))
+    setTrailer(trailer)
+    setData(data)
+    setLoading(false)
+  }
+  const LoadList= async ()=>{
+    setLoading2(true)
     const { data: { results } } = await axios.get(`${ApiUrl}/tv/${serie}/similar`, {
       params: {
         api_key: KeyApi,
         language: 'es',
       }
     })
+    setTvSimilar(results)
+
     const recomendation = await axios.get(`${ApiUrl}/tv/${serie}/recommendations`, {
       params: {
         api_key: KeyApi,
         language: 'es',
       }
     })
-
     setRecomendation(recomendation.data.results)
-    setTvSimilar(results)
-    const trailer = data.videos.results.filter(i => i.name.includes('Trailer') || i.name.includes('Tráiler'))
-    setTrailer(trailer)
-    setData(data)
+    setLoading2(false)
   }
-  useEffect(() => { LoadData() }, [serie])
+  useEffect(() => { LoadData(), LoadList() }, [serie])
   return (
     <div className='MovieId'>
 
-      <MovieIdAndCardId data={data} UrlImage={UrlImage} trailer={trailer} />
+      <MovieIdAndCardId loading={loading} data={data} UrlImage={UrlImage} trailer={trailer} />
 
-      {recomendation.length == 0 ? '' : <List
-        tipoDeCarta={true}
-        Data={recomendation}
-        Title='Series recomendadas'
-        UrlImage={UrlImage}
-        limite={4}
-        direccion={'tv'}
-      />}
-      {tvSimilar.length == 0 ? '' : <List
-        tipoDeCarta={true}
-        Data={tvSimilar}
-        Title='Series similares'
-        UrlImage={UrlImage}
-        limite={4}
-        direccion={'tv'}
-      />}
+      {recomendation.length == 0 ? '' :
+        <List
+          loading={loading2}
+          tipoDeCarta={true}
+          Data={recomendation}
+          Title='Series recomendadas'
+          UrlImage={UrlImage}
+          limite={4}
+          direccion={'tv'}
+        />}
+      {tvSimilar.length == 0 ? '' :
+        <List
+          loading={loading2}
+          tipoDeCarta={true}
+          Data={tvSimilar}
+          Title='Series similares'
+          UrlImage={UrlImage}
+          limite={4}
+          direccion={'tv'}
+        />}
     </div>
   );
 };

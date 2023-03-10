@@ -5,12 +5,16 @@ import { useState, useEffect } from "react";
 const index = () => {
     const router = useRouter()
     const [tv, setTv] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [loading2, setLoading2] = useState(true)
     const [movie, setMovie] = useState([])
     const busqueda = router.query.id
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
     const UrlImage = 'https://image.tmdb.org/t/p/original'
     const LoadData = async () => {
+        setLoading(true)
+        setLoading2(true)
         const { data: { results } } = await axios.get(ApiUrl + '/search/movie', {
             params: {
                 api_key: KeyApi,
@@ -30,7 +34,8 @@ const index = () => {
 
         })
         setTv(tvs.data.results)
-
+        setLoading(false)
+        setLoading2(false)
     }
     useEffect(() => { LoadData() }, [busqueda])
 
@@ -38,6 +43,7 @@ const index = () => {
         <div className="ContentListAndMovies">
 
             <List
+                loading={loading}
                 tipoDeCarta={true}
                 Title={movie.length == 0 ? 'No hay resultados en peliculas' : 'Resultados en peliculas'}
                 limite={1000}
@@ -46,6 +52,7 @@ const index = () => {
                 UrlImage={UrlImage}
             />
             <List
+                loading={loading2}
                 tipoDeCarta={true}
                 Title={tv.length == 0 ? 'No hay resultados en series' : 'Resultados en series'}
                 limite={1000}
