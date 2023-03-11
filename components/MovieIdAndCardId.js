@@ -8,12 +8,11 @@ import Icon from "@mdi/react";
 import YouTube from 'react-youtube';
 
 const MovieIdAndCardId = ({ data, trailer, loading }) => {
-    const UrlImage = 'https://image.tmdb.org/t/p/w400'
-    const UrlImage2 = 'https://image.tmdb.org/t/p/w500'
+    const UrlImage = 'https://image.tmdb.org/t/p/w500'
     const router = useRouter()
     const [openModal, setOpenModal] = useState(false)
     console.log(data)
-    const backdgrop2 = UrlImage2 + data.backdrop_path
+    const backdgrop2 = UrlImage + data.backdrop_path
     const poster = UrlImage + data.poster_path
 
 
