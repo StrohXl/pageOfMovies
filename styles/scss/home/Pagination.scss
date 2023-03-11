@@ -5,8 +5,16 @@
     margin-bottom: 1rem;
 
     &-item {
+        min-width: 20px !important;
+        margin-inline-end: 0 !important;
+        li{
+            border: 0 !important;
+        }
         a {
-            font-size: 2rem;
+            font-size: .8rem;
+            @include mixins.texto(400px, 1.2rem,'', '');
+            @include mixins.texto(600px, 1.6rem,'', '');
+            @include mixins.texto(1900px, 2rem,'', '');
             color: #fff !important;
         }
 
@@ -16,23 +24,32 @@
         border: 0 !important;
         border-radius: 0 !important;
         height: 40px !important;
-        padding: 0 5px !important;
+        padding: 0 10px !important;
 
         a {
-            @include mixins.pagination(2rem, 3px 0 0 0, #000);
+            @include mixins.pagination(1rem, 3px 0 0 0, #000);
+            @include mixins.texto(400px, 1.2rem,'', '');
+            @include mixins.texto(600px, 1.8rem,'', '');
+            @include mixins.texto(600px, 2.2rem,'', '');
         }
 
     }
 
     &-prev {
         .anticon {
-            @include mixins.pagination(1.8rem, 5px 0 0 0, #fff);
+            @include mixins.pagination(.8rem, 5px 0 0 0, #fff);
+            @include mixins.texto(400px, 1rem,'', '');
+            @include mixins.texto(600px, 1.2rem,'', '');
+            @include mixins.texto(1900px, 1.6rem,'', '');
         }
     }
 
     &-next {
         .anticon {
-            @include mixins.pagination(1.8rem, 5px 0 0 0, #fff);
+            @include mixins.pagination(.8rem, 5px 0 0 0, #fff);
+            @include mixins.texto(400px, 1rem,'', '');
+            @include mixins.texto(600px, 1.2rem,'', '');
+            @include mixins.texto(1900px, 1.6rem,'', '');
         }
 
     }
@@ -40,21 +57,37 @@
 
     &-jump-prev {
         .ant-pagination-item-ellipsis {
-            @include mixins.pagination('', 4px 0 0 0, #fff);
+            @include mixins.pagination(.5rem, 4px 0 0 0, #fff);
+            @include mixins.texto(400px, .8rem,'', '');
+            @include mixins.texto(600px, 1.2rem,'', '');
+            @include mixins.texto(1900px, 1.4rem,'', '');
         }
 
         .anticon {
-            @include mixins.pagination(1.4rem, 8px 0 0 0, #fff);
+            @include mixins.pagination(.8rem, 8px 0 0 0, #fff);
+            @include mixins.texto(400px, 1rem,'', '');
+            @include mixins.texto(600px, 1.2rem,'', '');
+            @include mixins.texto(1900px, 1.6rem,'', '');
+
         }
     }
 
     &-jump-next {
         .ant-pagination-item-ellipsis {
-            @include mixins.pagination('', 4px 0 0 0, #fff);
+            @include mixins.pagination(.5rem, 4px 0 0 0, #fff);
+            @include mixins.texto(400px, .8rem,'', '');
+            @include mixins.texto(600px, 1.2rem,'', '');
+            @include mixins.texto(1900px, 1.4rem,'', '');
+
+
         }
 
         .anticon {
-            @include mixins.pagination(1.4rem, 8px 0 0 0, #fff);
+            @include mixins.pagination(.8rem, 8px 0 0 0, #fff);
+            @include mixins.texto(400px, 1rem,'', '');
+            @include mixins.texto(600px, 1.4rem,'', '');
+            @include mixins.texto(1900px, 1.8rem,'', '');
+
         }
 
 
