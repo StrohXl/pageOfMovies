@@ -8,7 +8,7 @@ import Icon from "@mdi/react";
 import YouTube from 'react-youtube';
 
 const MovieIdAndCardId = ({ data, trailer, loading }) => {
-    const UrlImage = 'https://image.tmdb.org/t/p/w300'
+    const UrlImage = 'https://image.tmdb.org/t/p/w400'
     const UrlImage2 = 'https://image.tmdb.org/t/p/w500'
     const router = useRouter()
     const [openModal, setOpenModal] = useState(false)

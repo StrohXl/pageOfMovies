@@ -9,7 +9,7 @@ const index = () => {
     //Variables
     const ApiUrl = 'https://api.themoviedb.org/3'
     const KeyApi = '3883721a9564ae460e37b119f2483909'
-    const UrlImage = 'https://image.tmdb.org/t/p/original'
+    const UrlImage = 'https://image.tmdb.org/t/p/w500'
     //Funciones
     const filtrado = data.filter((i, indice) => indice < 7)
 
