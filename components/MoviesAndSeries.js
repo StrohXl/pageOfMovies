@@ -1,9 +1,9 @@
 import Cards from './Cards'
 import { Row, Col, Skeleton } from "antd"
 
-const MoviesAndSeries = ({ Title, Data, UrlImage, limite, direccion, tipoDeCarta, loading }) => {
+const MoviesAndSeries = ({ Title, Data, limite, direccion, tipoDeCarta, loading }) => {
   //Variables Url
-
+  const UrlImage = 'https://image.tmdb.org/t/p/w200'
   const auxData = Data.filter((i, indice) => indice < limite)
   const repetir = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
   const repetirLimite = repetir.filter((i, indice) => indice < limite)

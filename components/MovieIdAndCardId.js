@@ -7,12 +7,13 @@ import Image from 'next/image';
 import Icon from "@mdi/react";
 import YouTube from 'react-youtube';
 
-const MovieIdAndCardId = ({ data, UrlImage, trailer, loading }) => {
-
+const MovieIdAndCardId = ({ data, trailer, loading }) => {
+    const UrlImage = 'https://image.tmdb.org/t/p/w300'
+    const UrlImage2 = 'https://image.tmdb.org/t/p/w500'
     const router = useRouter()
     const [openModal, setOpenModal] = useState(false)
     console.log(data)
-    const backdgrop = UrlImage + data.backdrop_path
+    const backdgrop2 = UrlImage2 + data.backdrop_path
     const poster = UrlImage + data.poster_path
 
 
@@ -24,7 +25,7 @@ const MovieIdAndCardId = ({ data, UrlImage, trailer, loading }) => {
                         {loading ?
                             ''
                             :
-                            <Image quality={10} src={backdgrop} alt={data.title || data.name} fill />
+                            <Image quality={10} src={backdgrop2} alt={data.title || data.name} fill />
                         }
                         <div className='contentBack'></div>
 
