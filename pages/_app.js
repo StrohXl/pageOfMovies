@@ -27,15 +27,15 @@ export default function App({ Component, pageProps }) {
   return (
     <ConfigProvider>
       <Head>
+        <meta name='image' content='https://image.tmdb.org/t/p/w300/d7i9UXE7IfPx2uYtYKzgjs6zYzR.jpg' itemprop="thumbnailUrl" />
         <title>NEXTMOVIE</title>
         <meta name="description" content="Esta es una pagina de peliculas" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name='og:image' content='https://image.tmdb.org/t/p/w300/d7i9UXE7IfPx2uYtYKzgjs6zYzR.jpg' itemprop="thumbnailUrl" />
-        <meta name='og:title' content="se esta compartiendo" />
-        <meta name='og:type' content="website" />
-        <meta name='og:url' content="https://strohxl.github.io/pageOfMovies/movies/573171" />
-        <meta name="og:site_name" content="NEXTMOVIE"/>
-        <meta name="og:description" content="..."/>
+        <meta name='title' content="se esta compartiendo" />
+        <meta name='type' content="website" />
+        <meta name='url' content="https://strohxl.github.io/pageOfMovies/movies/573171" />
+        <meta name="site_name" content="NEXTMOVIE"/>
+        <meta name="description" content="..."/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
