@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }) {
         <title>NEXTMOVIE</title>
         <meta name="description" content="Esta es una pagina de peliculas" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property='og:image' content='/favicon.ico' />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
