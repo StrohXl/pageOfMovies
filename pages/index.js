@@ -55,7 +55,15 @@ export default function Home() {
   useEffect(() => { LoadData() }, [])
   return (
     <>
-   
+      <Head>
+        <meta name='title' content="se esta compartiendo" />
+        <meta name='image' content='https://image.tmdb.org/t/p/w300/d7i9UXE7IfPx2uYtYKzgjs6zYzR.jpg' itemprop="thumbnailUrl" />
+        <meta name="description" content="Esta es una pagina de peliculas" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='type' content="website" />
+        <meta name='url' content="https://strohxl.github.io/pageOfMovies/movies/573171" />
+        <meta name="site_name" content="NEXTMOVIE"/>
+      </Head>
       <div className="ContentListAndMovies">
         <Carousel />
         <Movies loading={loading} tipoDeCarta={true} Title={'Peliculas'} Data={movies} UrlImage={UrlImage} limite={8} direccion={'movies'}  />
