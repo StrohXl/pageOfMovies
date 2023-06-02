@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import List from '../../components/ListMoviesAndTv';
 import axios from 'axios';
 import MovieIdAndCardId from '../../components/MovieIdAndCardId';
+import Head from 'next/head';
 const Pelicula = () => {
   //Variables de estado
   const [data, setData] = useState([])
@@ -60,10 +61,10 @@ const Pelicula = () => {
   return (
 
     <div className='MovieId' >
-
-
-
-
+      <Head>
+      <meta name="description" content='esta es la descripcion de una pelicula' />
+      <meta property='og:image' content={'https://image.tmdb.org/t/p/w500'+data.poster_path} />
+      </Head>
       <MovieIdAndCardId loading={loading} data={data} UrlImage={UrlImage} trailer={trailer} />
       {moviesRecomendation.length == 0 ? '' :
         <List
